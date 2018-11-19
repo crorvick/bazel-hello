@@ -1,4 +1,4 @@
-def optimized_binary(name):
+def optimized_binary(name, **kwargs):
     in_file = name + '.in'
     out_file = name + '.cc'
     native.genrule(
@@ -11,4 +11,5 @@ def optimized_binary(name):
     native.cc_binary(
         name = name,
         srcs = [ out_file ],
+        **kwargs
     )
